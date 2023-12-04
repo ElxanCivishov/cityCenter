@@ -10,18 +10,8 @@
 @import "tailwindcss/utilities";
 
 :root {
-  --color-131921: #131921;
-  --color-3b4149: #3b4149;
   --color-febd69: #ec356a;
-  /* --color-febd69: #f0af5b; */
   --color-d0903d: #ec356a;
-  /* --color-d0903d: #d0903d; */
-  --color-232f3e: #232f3e;
-  --color-bf4800: #bf4800;
-  --color-f5f5f7: #f5f5f7;
-  --color-ededed: #ededed;
-  --color-777777: #777777;
-  --color-1c1c1b: #1c1c1b;
 
   /* swiper */
   --swiper-theme-color: #131921 !important;
@@ -32,7 +22,7 @@ body {
 }
 
 ::selection {
-  background: gray;
+  background: rgb(165, 163, 163);
   color: white;
 }
 
@@ -51,30 +41,6 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-d0903d);
-}
-
-.ql-editor {
-  font-size: 17px !important;
-  min-height: 100px;
-}
-
-.ql-toolbar.ql-snow {
-  border: 1px solid rgb(241 245 249) !important;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-.ql-container.ql-snow {
-  height: auto !important;
-  border: 1px solid rgb(241 245 249) !important;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-top: none !important;
-}
-
-@media (max-width: 600px) {
-  .ql-container.ql-snow * {
-    font-size: 13px;
-  }
 }
 
 a {
