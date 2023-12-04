@@ -1,14 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
-import { ServiceCardForSearch } from "../../components/cards";
-import { Meta } from "../../components/layout";
+import { ServiceCardForSearch } from "../components/cards";
+import { Meta } from "../components/layout";
 import { useDispatch, useSelector } from "react-redux";
-import { RESET, getServices } from "../../features/service/serviceSlice";
-import { Loader, ProgressBarLoader, SearchBar } from "../../components";
+import { RESET, getServices } from "../features/service/serviceSlice";
+import { Loader, ProgressBarLoader, SearchBar } from "../components";
 
 import { Navigate, useSearchParams } from "react-router-dom";
-import SearchShops from "./SearchShops";
-import { getBlogs, RESET as RESETBLOGS } from "../../features/blogs/blogSlice";
-import SearchBlogs from "./SearchBlogs";
+import SearchShops from "../components/search/SearchShops";
+import { getBlogs, RESET as RESETBLOGS } from "../features/blogs/blogSlice";
+import SearchBlogs from "../components/search/SearchBlogs";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ const Search = () => {
 
   return (
     <main className="flex flex-col gap-14 pb-10">
-      <Meta title="Mağaza və Restoranlar" />
+      <Meta title="Mağazalar, Restoranlar, Xəbərlər və Yeniliklər" />
       {isLoading && <ProgressBarLoader isLoading={isLoading} />}
       <section className="container px-4">
         <div className="my-5 flex flex-col  sm:flex-row items-center justify-between  gap-2">
@@ -74,7 +74,6 @@ const Search = () => {
           ) : (
             <>
               <h3 className="text-black font-medium">Mağaza və Restoranlar</h3>
-
               <div className="grid xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-7 my-6 transition-all duration-400">
                 <SearchShops search={search} services={services} />
               </div>

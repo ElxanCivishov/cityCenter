@@ -93,7 +93,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
             <div className="flex items-center gap-3 text-white text-xl">
               <img src={logo} alt="logo" width={40} height={40} />
               <span className={sidebarExpanded ? "block" : "hidden"}>
-                Nizami MALL
+                City Centre
               </span>
             </div>
           </NavLink>

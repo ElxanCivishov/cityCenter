@@ -7,10 +7,7 @@ const getServiceInfo = async () => {
 };
 
 const updateServiceInfo = async (serviceinfo) => {
-  const response = await axios.post(`${base_url}company-text`, {
-    title: serviceinfo.title,
-    content: serviceinfo.content,
-  });
+  const response = await axios.post(`${base_url}company-text`, serviceinfo);
 
   return response.data;
 };

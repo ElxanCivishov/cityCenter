@@ -31,7 +31,7 @@ const SingleService = () => {
   }, [dispatch, service, isSuccess]);
 
   return (
-    <div>
+    <>
       <Meta title={isLoading ? "Yüklənir" : service?.name} />
 
       <section className="container p-4 ">
@@ -83,7 +83,7 @@ const SingleService = () => {
 
         {service && <SimilarServices item={service} />}
       </section>
-    </div>
+    </>
   );
 };
 

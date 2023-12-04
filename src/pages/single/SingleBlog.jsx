@@ -25,7 +25,7 @@ const SingleBlog = () => {
   }, [dispatch, blog, isSuccess]);
 
   return (
-    <div>
+    <>
       <Meta title={isLoading ? "Yüklənir" : blog?.title} />
 
       <section className="container p-4">
@@ -62,7 +62,7 @@ const SingleBlog = () => {
           <NotResult title="Xəbər və ya yenilik tapılmadı." />
         )}
       </section>
-    </div>
+    </>
   );
 };
 

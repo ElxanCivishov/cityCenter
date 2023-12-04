@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { BlogCardForSearch } from "../../components/cards";
+import { BlogCardForSearch } from "../cards";
 
 const SearchBlogs = ({ blogs, search }) => {
   const displayBlogs = useMemo(() => {

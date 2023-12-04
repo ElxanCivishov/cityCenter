@@ -3,7 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { addValidation } from "../../../features/dataSlice";
 
 import { Button, FormInput, FormTextarea } from "../../../components/elements";
@@ -13,6 +13,8 @@ import {
   getServiceInfo,
   updateServiceInfo,
 } from "../../../features/service/serviceInfoSlice";
+import TruncatedText from "../../../components/TruncatedText";
+import { MdCloudUpload } from "react-icons/md";
 
 let schema = yup.object().shape({
   title: yup.string().required(" "),
@@ -26,11 +28,14 @@ const ServisBanner = () => {
     (state) => state.serviceText
   );
 
+  const [previewImage, setPreviewImage] = useState();
+
   const {
     handleSubmit,
     register,
     watch,
     reset,
+    setValue,
     trigger,
     formState: { errors, isDirty },
   } = useForm({
@@ -49,6 +54,7 @@ const ServisBanner = () => {
   useEffect(() => {
     dispatch(addValidation(false));
     dispatch(RESET());
+    setPreviewImage();
   }, [isSuccess, dispatch]);
 
   useEffect(() => {
@@ -57,8 +63,15 @@ const ServisBanner = () => {
     }
   }, [serviceText]);
 
-  const onSubmit = handleSubmit((values) => {
-    dispatch(updateServiceInfo(values));
+  const onSubmit = handleSubmit(async (values) => {
+    const formData = new FormData();
+
+    if (previewImage) {
+      formData.append("image", values.image);
+    }
+    formData.append("title", values.title);
+    formData.append("content", values.content);
+    dispatch(updateServiceInfo(formData));
   });
 
   const handleClick = () => {
@@ -67,6 +80,13 @@ const ServisBanner = () => {
     } else {
       dispatch(addValidation(false));
     }
+  };
+
+  const handleImageChange = (e) => {
+    const selectedImage = e.target.files[0];
+    setValue("image", selectedImage);
+    const preview = URL.createObjectURL(selectedImage);
+    setPreviewImage(preview);
   };
 
   return (
@@ -78,39 +98,74 @@ const ServisBanner = () => {
         </h3>
         <hr className="my-2" />
 
-        <form
-          action=""
-          className="flex flex-col space-y-3 gap-1 px-4"
-          onSubmit={handleSubmit(onSubmit)}
-          noValidate
-        >
-          <FormInput
-            register={register("title")}
-            errors={errors.title}
-            label="Başlıq"
-            placeholder="Başlıq..."
-          />
+        {serviceText && (
+          <form
+            action=""
+            className="flex flex-col space-y-3 gap-1 px-4"
+            onSubmit={handleSubmit(onSubmit)}
+            noValidate
+          >
+            <div className=" p-2 rounded-md flex flex-col  gap-3">
+              <input
+                className="hidden"
+                id="photo"
+                type="file"
+                accept="image/*"
+                onChange={(e) => handleImageChange(e)}
+              />
+              <label
+                htmlFor="photo"
+                className="flex items-center  mb-2 text-base  cursor-pointer font-medium text-gray-900 dark:text-white"
+              >
+                <MdCloudUpload className="me-2 text-xl" /> Banner
+              </label>
+              <div
+                className="bg-center bg-cover bg-no-repeat bg-blend-multiply w-full mb-5"
+                style={{
+                  backgroundImage: `url("${
+                    previewImage ?? serviceText?.image
+                  }")`,
+                }}
+              >
+                <div className="py-20 px-4 mx-auto  text-center lg:py-20 z-10 relative ">
+                  <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-zinc-800 md:text-5xl lg:text-6xl dark:text-white">
+                    {serviceText.title}
+                  </h1>
+                  <div className="md:mb-8  font-medium tracking-wide text-zinc-700 text-base lg:text-xl sm:px-10 lg:px-40 dark:text-gray-200">
+                    <TruncatedText text={serviceText.content || ""} />
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <FormTextarea
-            register={register("content")}
-            errors={errors.content}
-            label="Content"
-            rows={5}
-            classInput="max-h-[300px] p-2"
-            placeholder="content daxil edin..."
-          />
-
-          <div className="flex items-center justify-center">
-            <Button
-              onClick={() => handleClick()}
-              classBtn="border-0 w-24 !rounded-full "
-              type="submit"
-              disabled={!isDirty || isLoading}
-              isLoading={isLoading}
-              label="Yenilə"
+            <FormInput
+              register={register("title")}
+              errors={errors.title}
+              label="Başlıq"
+              placeholder="Başlıq..."
             />
-          </div>
-        </form>
+
+            <FormTextarea
+              register={register("content")}
+              errors={errors.content}
+              label="Content"
+              rows={5}
+              classInput="max-h-[300px] p-2"
+              placeholder="content daxil edin..."
+            />
+
+            <div className="flex items-center justify-center">
+              <Button
+                onClick={() => handleClick()}
+                classBtn="border-0 w-24 !rounded-full "
+                type="submit"
+                disabled={previewImage ? false : !isDirty || isLoading}
+                isLoading={isLoading}
+                label="Yenilə"
+              />
+            </div>
+          </form>
+        )}
       </div>
     </>
   );

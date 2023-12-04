@@ -3,7 +3,7 @@ import { Meta } from "../components/layout";
 
 const NotFound = () => {
   return (
-    <div>
+    <>
       <Meta title="Səhifə tapılmadı" />
       <section className="container p-4">
         <div className="bg-white p-5 flex items-center justify-center">
@@ -27,7 +27,7 @@ const NotFound = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

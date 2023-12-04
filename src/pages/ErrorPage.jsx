@@ -10,7 +10,7 @@ const ErrorPage = () => {
   };
 
   return (
-    <div>
+    <>
       <Meta title="Xəta" />
       <section className="container p-4">
         <div className="bg-white p-5 flex items-center justify-center">
@@ -37,7 +37,7 @@ const ErrorPage = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

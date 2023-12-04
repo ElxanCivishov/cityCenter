@@ -90,19 +90,15 @@ const Contact = () => {
   };
 
   return (
-    <div>
-      <Meta title="İcarə üçün müraciət" />
+    <>
+      <Meta title="Bizimlə əlaqə" />
       <section className="container p-4 my-5 ">
         <div className="w-full  mx-auto bg-white p-5 rounded-lg">
           <h3 className="text-xl text-zinc-700 font-semibold md:text-center px-4 mb-3">
             Bizimlə əlaqə
           </h3>
           <div className="flex items-center justify-center">
-            <img
-              src={contactImg || "/images/contact.png"}
-              alt="contact"
-              className="h-[200px]"
-            />
+            <img src={contactImg} alt="contact" className="h-[200px]" />
           </div>
           <p className="text-sm text-zinc-700 font-semibold md:text-center tracking-wide px-4 mb-5">
             Suallarınızı, təklif və ya iradlarınızı bizə bildirin. Fikirləriniz
@@ -180,7 +176,7 @@ const Contact = () => {
           </form>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

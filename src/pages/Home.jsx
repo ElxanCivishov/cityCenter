@@ -9,7 +9,7 @@ import {
 const Home = () => {
   return (
     <main className="flex flex-col gap-14 pb-10">
-      <Meta title="City Center" />
+      <Meta title="City Centre" />
       <HomeSlider />
       <HomeCategories />
       <HomeInformation />

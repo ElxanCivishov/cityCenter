@@ -54,28 +54,32 @@ const Blogs = () => {
   if (isError) return <Navigate to="/error" state={{ error: message }} />;
 
   return (
-    <div>
+    <>
       <Meta title="Xəbərlər və Yeniliklər" />
-      <div className="h-1 w-full">
-        {isLoading && <ProgressBarLoader isLoading={isLoading} />}
-      </div>
-      <section className="container p-4 my-5">
+      {isLoading && <ProgressBarLoader isLoading={isLoading} />}
+      <section className="container px-4 mb-5 ">
         {bannerLoading ? (
           <Loader />
         ) : (
           blogText && (
-            <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-20 z-10 relative">
-              <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-zinc-800 md:text-5xl lg:text-6xl dark:text-white">
-                {blogText.title}
-              </h1>
-              <div className="md:mb-8 text-sm font-medium tracking-wide text-zinc-700 md:text-base lg:text-xl sm:px-10 lg:px-40 dark:text-gray-200">
-                <TruncatedText text={blogText.content || ""} />
+            <div
+              className="bg-center bg-cover bg-no-repeat bg-blend-multiply bg-transparent w-full mb-5"
+              style={{
+                backgroundImage: `url("${blogText.image}")`,
+              }}
+            >
+              <div className="py-20 px-4 mx-auto  text-center lg:py-20 z-10 relative ">
+                <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-zinc-800 md:text-5xl lg:text-6xl dark:text-white">
+                  {blogText.title}
+                </h1>
+                <div className="md:mb-8  font-medium tracking-wide text-zinc-700 text-base lg:text-xl sm:px-10 lg:px-40 dark:text-gray-200">
+                  <TruncatedText text={blogText.content || ""} />
+                </div>
               </div>
             </div>
           )
         )}
-
-        <div className="w-full flex flex-col gap-5">
+        <div className="w-full flex flex-col gap-5 my-5">
           <div className="flex w-full items-center justify-end">
             <SearchBar />
           </div>
@@ -92,7 +96,7 @@ const Blogs = () => {
           )}
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { ServiceCardForSearch } from "../../components/cards";
+import { ServiceCardForSearch } from "../cards";
 
 const SearchShops = ({ services, search }) => {
   const displayServices = useMemo(() => {
