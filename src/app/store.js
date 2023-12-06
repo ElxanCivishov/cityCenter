@@ -25,10 +25,8 @@ export const store = configureStore({
     contacts: contactReducer,
     blogs: blogReducer,
     services: serviceReducer,
-
     layout: layoutReducer,
     newsletters: newsletterReducer,
-
     serviceInfo: homeServiceInfoReducer,
     serviceText: serviceTextReducer,
     blogInfo: homeBlogInfoReducer,

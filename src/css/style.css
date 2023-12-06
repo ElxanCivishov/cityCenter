@@ -5,13 +5,12 @@
 
 /* Additional styles */
 @import "additional-styles/utility-patterns.css";
-@import "additional-styles/flatpickr.css";
 
 @import "tailwindcss/utilities";
 
 :root {
   --color-febd69: #ec356a;
-  --color-d0903d: #ec356a;
+  --color-d0903d: #c72252;
 
   /* swiper */
   --swiper-theme-color: #131921 !important;

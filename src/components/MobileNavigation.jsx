@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
-import { FaBlog, FaSearch, FaShoppingCart } from "react-icons/fa";
+import { FaBlog, FaShoppingCart } from "react-icons/fa";
 import { MdContactPage } from "react-icons/md";
 
 const Menus = [

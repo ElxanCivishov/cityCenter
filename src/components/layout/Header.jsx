@@ -13,7 +13,7 @@ import { FaSearch } from "react-icons/fa";
 const navs = [
   {
     path: "/",
-    title: "Ana Səhifə",
+    title: "ANA SƏHİFƏ",
   },
   {
     path: "/magaza-ve-restoranlar",
@@ -70,7 +70,7 @@ const Header = () => {
                   >
                     <NavLink
                       to={nav.path}
-                      className={`text-sm uppercase hover:text-colorPrimaryHover transition-all duration-100 ${
+                      className={`text-sm hover:text-colorPrimaryHover transition-all duration-100 ${
                         pathname === nav.path
                           ? "text-colorPrimary"
                           : "text-zinc-800"
