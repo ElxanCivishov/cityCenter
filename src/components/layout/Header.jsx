@@ -25,7 +25,7 @@ const navs = [
   },
   {
     path: "/elaqe",
-    title: "Əlaqə",
+    title: "ƏLAQƏ",
   },
 ];
 
