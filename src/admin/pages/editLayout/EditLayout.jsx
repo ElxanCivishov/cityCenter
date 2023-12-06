@@ -11,6 +11,17 @@ import {
 import { Button, FormInput } from "../../../components/elements";
 import { Meta } from "../../../components/layout";
 
+const initialValue = {
+  title: "",
+  email: "",
+  number_1: "",
+  number_2: "",
+  address: "",
+  address_url: "",
+  facebook: "",
+  instagram: "",
+};
+
 const EditLayout = () => {
   const dispatch = useDispatch();
 
@@ -23,8 +34,11 @@ const EditLayout = () => {
     handleSubmit,
     setValue,
     reset,
+    watch,
     formState: { isDirty },
-  } = useForm({});
+  } = useForm({
+    defaultValues: initialValue,
+  });
 
   useEffect(() => {
     dispatch(getLayout());
@@ -48,19 +62,21 @@ const EditLayout = () => {
     const formData = new FormData();
 
     if (previewLogo) {
-      formData.append("logo", values.logo);
+      formData.append("logo", values.logo || "");
     }
-    formData.append("title", values.title);
-    formData.append("email", values.email);
-    formData.append("number_1", values.number_1);
-    formData.append("number_2", values.number_2);
-    formData.append("address", values.address);
-    formData.append("address_url", values.address_url);
-    formData.append("facebook", values.facebook);
-    formData.append("instagram", values.instagram);
+    formData.append("title", values.title || "");
+    formData.append("email", values.email || "");
+    formData.append("number_1", values.number_1 || "");
+    formData.append("number_2", values.number_2 || "");
+    formData.append("address", values.address || "");
+    formData.append("address_url", values.address_url || "");
+    formData.append("facebook", values.facebook || "");
+    formData.append("instagram", values.instagram || "");
 
     dispatch(updateLayout({ data: formData }));
   });
+
+  console.log(watch());
 
   const handleImageChange = useCallback(
     (e) => {
