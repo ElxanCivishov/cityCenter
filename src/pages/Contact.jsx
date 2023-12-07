@@ -122,7 +122,7 @@ const Contact = () => {
                 register={register("email")}
                 errors={errors.email}
                 label="Email adresiniz"
-                placeholder="email..."
+                placeholder="Email..."
                 type="email"
                 required={true}
               />
