@@ -10,11 +10,11 @@ const SearchBlogs = ({ blogs, search }) => {
   }, [blogs, search]);
 
   return (
-    <>
+    <div className="grid  md:grid-cols-3  gap-4 md:gap-7 my-6 transition-all duration-400">
       {displayBlogs.map((s) => (
         <BlogCardForSearch key={s.id} blog={s} />
       ))}
-    </>
+    </div>
   );
 };
 

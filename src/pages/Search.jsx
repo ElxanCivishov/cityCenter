@@ -74,14 +74,9 @@ const Search = () => {
           ) : (
             <>
               <h3 className="text-black font-medium">Mağaza və Restoranlar</h3>
-              <div className="grid xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-7 my-6 transition-all duration-400">
-                <SearchShops search={search} services={services} />
-              </div>
+              <SearchShops search={search} services={services} />
               <h3 className="text-black font-medium">Xəbər və Yeniliklər</h3>
-
-              <div className="grid  md:grid-cols-3  gap-4 md:gap-7 my-6 transition-all duration-400">
-                <SearchBlogs search={search} blogs={blogs} />
-              </div>
+              <SearchBlogs search={search} blogs={blogs} />
             </>
           )}
         </div>

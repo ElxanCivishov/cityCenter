@@ -42,10 +42,10 @@ const HomeSlider = () => {
               clickable: true,
               dynamicBullets: true,
             }}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
+            // autoplay={{
+            //   delay: 2500,
+            //   disableOnInteraction: false,
+            // }}
             navigation={true}
             modules={[Pagination, Navigation, Autoplay]}
             className="mySwiper h-full"
@@ -57,7 +57,7 @@ const HomeSlider = () => {
                     <img
                       src={slider.image}
                       alt="marka"
-                      className="w-full h-full  max-h-[70vh]  rounded-lg object-contain"
+                      className="w-full h-full  max-h-[70vh]  rounded-lg object-contain md:object-cover"
                     />
 
                     {slider.title && (

@@ -129,20 +129,24 @@ const Footer = () => {
           </p>
           {(layout?.instagram || layout?.facebook) && (
             <div className="flex  gap-1 items-center">
-              <Link
-                to={layout?.instagram}
-                target="_blank"
-                className="flex w-full flex-col items-center justify-center text-red-500 hover:text-red-600"
-              >
-                <FaInstagramSquare className="text-3xl" />
-              </Link>
-              <Link
-                to={layout?.facebook}
-                target="_blank"
-                className="flex w-full flex-col items-center justify-center text-blue-500 hover:text-blue-600"
-              >
-                <FaFacebookSquare className="text-3xl" />
-              </Link>
+              {layout?.instagram && (
+                <Link
+                  to={layout?.instagram}
+                  target="_blank"
+                  className="flex w-full flex-col items-center justify-center text-red-500 hover:text-red-600"
+                >
+                  <FaInstagramSquare className="text-3xl" />
+                </Link>
+              )}
+              {layout?.facebook && (
+                <Link
+                  to={layout?.facebook}
+                  target="_blank"
+                  className="flex w-full flex-col items-center justify-center text-blue-500 hover:text-blue-600"
+                >
+                  <FaFacebookSquare className="text-3xl" />
+                </Link>
+              )}
             </div>
           )}
         </div>

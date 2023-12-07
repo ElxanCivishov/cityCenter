@@ -85,7 +85,7 @@ img {
 
 .swiper-slide img {
   display: block;
-  object-fit: cover;
+  /* object-fit: cover; */
 }
 
 .swiper-pagination-bullets {

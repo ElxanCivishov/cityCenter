@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { MdArrowRightAlt } from "react-icons/md";
 import noimage from "/images/noImage.png";
 import { convertDateTime } from "../../helper/date-fns";
 import TruncatedText from "../TruncatedText";
@@ -8,11 +7,11 @@ const BlogCardForSearch = ({ blog }) => {
     blog && (
       <div className="w-full h-full bg-white  transition-all duration-200  group  shadow-lg rounded-lg">
         <Link to={`/xeber/${blog.id}`} className="h-full w-full">
-          <div className="w-full h-full rounded-t-lg overflow-hidden flex items-center justify-center   max-h-[250px] bg-white">
+          <div className="w-full rounded-t-lg overflow-hidden flex items-center justify-center  h-[250px] bg-white">
             <img
               src={blog.image || noimage}
               alt=""
-              className="w-full  h-full group-hover:scale-105 transition-all duration-200  object-cover "
+              className="w-full h-full group-hover:scale-105 transition-all duration-200  object-cover "
             />
           </div>
           <div className="p-4 bg-white mt-2 flex flex-col justify-between gap-2 md:gap-3">
