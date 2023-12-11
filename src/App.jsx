@@ -111,7 +111,6 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="edit-password" element={<ChangePassword />} />
           <Route path="subscribe" element={<Newsletter />} />
-          {/* <Route path="profile" element={<Contact />} /> */}
           <Route path="*" element={<NotFoundAdmin />} />
         </Route>
       </Routes>
